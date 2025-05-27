@@ -1,8 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { TodosProvider } from './providers/todos.provider'
 import { Layout } from './components/layout'
-import TodoListPage from './pages/todo-list.page'
-import TodoDetailPage from './pages/todo-detail.page'
+import { lazy, Suspense } from 'react'
+import { Spinner } from './components/spinner'
+
+const TodoDetailPage = lazy(() => import('./pages/todo-detail.page'))
+const TodoListPage = lazy(() => import('./pages/todo-list.page'))
 
 function App() {
   return (
@@ -10,8 +13,22 @@ function App() {
       <TodosProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<TodoListPage />} />
-            <Route path="/todos/:id" element={<TodoDetailPage />} />
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>is loading</div>}>
+                  <TodoListPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/todos/:id"
+              element={
+                <Suspense fallback={<Spinner />}>
+                  <TodoDetailPage />
+                </Suspense>
+              }
+            />
             <Route path="*" element={<div>Not found</div>} />
           </Routes>
         </BrowserRouter>
