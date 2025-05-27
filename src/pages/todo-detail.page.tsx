@@ -14,7 +14,6 @@ const TodoDetailPage = () => {
 
   useEffect(() => {
     setLoading(true)
-
     todoApi
       .fetchTodo(Number(params.id))
       .then((data) => {
@@ -28,7 +27,7 @@ const TodoDetailPage = () => {
       .finally(() => {
         setLoading(false)
       })
-  }, [])
+  }, [params])
 
   if (loading) {
     return <Spinner />
