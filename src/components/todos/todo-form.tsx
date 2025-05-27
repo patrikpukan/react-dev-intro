@@ -1,11 +1,9 @@
 import { useState, type ChangeEvent } from 'react'
+import { useTodoContext } from '../../hooks/useTodosContext'
 
-type TodoFormProps = {
-  addTodo: (todoName: string) => void
-}
-
-export const TodoForm = ({ addTodo }: TodoFormProps) => {
+export const TodoForm = () => {
   const [todoName, setTodoName] = useState('')
+  const { addTodo } = useTodoContext()
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTodoName(e.target.value)
@@ -18,7 +16,12 @@ export const TodoForm = ({ addTodo }: TodoFormProps) => {
 
   return (
     <div className="input-group">
-      <input value={todoName} onChange={handleInputChange} name="todo-text" placeholder="What needs to be done?" />
+      <input
+        value={todoName}
+        onChange={handleInputChange}
+        name="todo-text"
+        placeholder="What needs to be done?"
+      />
       <button onClick={handleSubmit} type="submit">
         Add
       </button>
