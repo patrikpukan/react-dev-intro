@@ -1,20 +1,14 @@
-import { Header } from './components/header'
-import { TodosSection } from './components/todos/todos-section'
+import { BrowserRouter } from 'react-router'
 import { TodosProvider } from './providers/todos.provider'
+import { Layout } from './components/layout'
 
 function App() {
   return (
-    <>
+    <Layout>
       <TodosProvider>
-        <div className="container">
-          <Header title="My Todo List" subtitle="Add your tasks" />
-          <TodosSection />
-          <footer>
-            <p>Click on a task to mark it as completed</p>
-          </footer>
-        </div>
+        <BrowserRouter></BrowserRouter>
       </TodosProvider>
-    </>
+    </Layout>
   )
 }
 
