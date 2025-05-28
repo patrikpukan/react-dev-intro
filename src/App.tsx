@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
-import { TodosProvider } from './providers/todos.provider'
 import { Layout } from './components/layout'
 import { lazy, Suspense } from 'react'
 import { Spinner } from './components/spinner'
@@ -14,29 +13,27 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Layout>
-        <TodosProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Suspense fallback={<div>is loading</div>}>
-                    <TodoListPage />
-                  </Suspense>
-                }
-              />
-              <Route
-                path="/todos/:id"
-                element={
-                  <Suspense fallback={<Spinner />}>
-                    <TodoDetailPage />
-                  </Suspense>
-                }
-              />
-              <Route path="*" element={<div>Not found</div>} />
-            </Routes>
-          </BrowserRouter>
-        </TodosProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>is loading</div>}>
+                  <TodoListPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/todos/:id"
+              element={
+                <Suspense fallback={<Spinner />}>
+                  <TodoDetailPage />
+                </Suspense>
+              }
+            />
+            <Route path="*" element={<div>Not found</div>} />
+          </Routes>
+        </BrowserRouter>
       </Layout>
     </QueryClientProvider>
   )
