@@ -9,6 +9,7 @@ type TodoItemProps = {
 export const TodoItem = ({ todo }: TodoItemProps) => {
   const { mutate: deleteTodo } = useTodoDelete()
   const { mutate: toggleTodo } = useTodoToggle()
+
   const handleDeleteTodo = () => {
     deleteTodo(todo.id)
   }
