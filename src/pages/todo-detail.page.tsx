@@ -1,14 +1,9 @@
 import { Link } from 'react-router'
-import { Spinner } from '../components/spinner'
 import { Header } from '../components/header'
 import { useTodoQuery } from '../hooks/useTodoQuery'
 
 const TodoDetailPage = () => {
-  const { data: todo, isLoading, isError } = useTodoQuery()
-
-  if (isLoading) {
-    return <Spinner />
-  }
+  const { data: todo, isError } = useTodoQuery()
 
   if (isError || !todo) {
     return (
