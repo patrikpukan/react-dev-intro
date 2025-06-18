@@ -1,12 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { todoApi } from '../api/todoApi'
-import type { TodoCreate } from '../types'
+import type { TodoUpdate } from '../types'
 
-export const useTodoCreate = () => {
+export const useTodoUpdate = () => {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (newTodo: TodoCreate) => todoApi.createTodo(newTodo),
+    mutationFn: ({ id, updates }: { id: number; updates: TodoUpdate }) =>
+      todoApi.updateTodo(id, updates),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['todos'] })
     },
