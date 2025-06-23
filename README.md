@@ -1,154 +1,227 @@
-# Todo App - React
+# Modern Todo Application
 
-A simple task management application built with React that we will create step by step. We'll implement a clean React-based todo application with modern hooks and state management.
+A feature-rich task management application built with React, TypeScript, and modern web technologies. This application demonstrates advanced React patterns, state management, and provides a comprehensive todo management experience.
 
 This project is part of the **React Programming Basics (4IT427)** course at the University of Economics in Prague.
 
-## Table of Contents
+## 🚀 Features
 
-- [Project Description](#project-description)
-- [How to Run the Project](#how-to-run-the-project)
-- [React Structure](#react-structure)
-- [Documentation](#documentation)
-- [How to Work with This Repository](#how-to-work-with-this-repository)
+### Core Todo Management
 
-## Project Description
+- **Create Todos**: Add new tasks with title, description, and priority levels (Low, Medium, High)
+- **Edit Todos**: Update existing tasks with full CRUD operations
+- **Delete Todos**: Remove individual tasks or multiple tasks at once
+- **Toggle Completion**: Mark tasks as completed or pending
+- **Priority System**: Organize tasks by priority levels (1=Low, 2=Medium, 3=High)
 
-In this project, we will together create a React-based task management application. The application already has a basic structure and UI components, and we'll implement the functionality to:
+### Advanced Functionality
 
-- Add new tasks
-- Mark tasks as completed
-- Delete tasks
-- Display a list of all tasks
-- Filter tasks by status
+- **Search & Filter**: Real-time search through todos and filter by status (All, Completed, Pending)
+- **Bulk Operations**: Select multiple todos and perform batch actions:
+  - Bulk delete selected todos
+  - Bulk mark as completed/incomplete
+  - Select all/deselect all functionality
+- **Statistics Dashboard**: View real-time statistics including total, completed, and pending todos
+- **Detailed View**: Individual todo detail pages with complete information
 
-This approach will help you understand core React concepts including components, state management, hooks, and how they all work together to create a dynamic user interface.
+### User Experience
 
-## How to Run the Project
+- **Responsive Design**: Fully responsive layout that works on all device sizes
+- **Dark/Light Mode**: Complete theme switching with system preference detection
+- **Modern UI**: Clean, accessible interface built with Radix UI components
+- **Loading States**: Proper loading indicators and error handling
+- **Optimistic Updates**: Instant UI feedback with server synchronization
 
-1. Make sure you have Node.js installed
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the development server:
-   ```
-   npm run dev
-   ```
-4. Open your browser at: `http://localhost:5173`
+### Technical Features
 
-## React Structure
+- **TypeScript**: Full type safety throughout the application
+- **React Router**: Client-side routing with lazy loading
+- **React Query**: Efficient server state management with caching
+- **Form Validation**: Robust form handling with Zod validation
+- **RESTful API**: Complete CRUD operations with external API integration
+- **Custom Hooks**: Reusable business logic abstraction
+- **Error Boundaries**: Graceful error handling and recovery
 
-The basic React structure of our application consists of functional components:
+## 🛠️ Technology Stack
 
-```jsx
-function App() {
-  return (
-    <>
-      <div className="container">
-        <header>
-          <h1>My Todo List</h1>
-          <p className="subtitle">Add your tasks</p>
-        </header>
-        <main>
-          <form id="todo-form">
-            <div className="input-group">
-              <input name="todo-text" id="new-todo-input" placeholder="What needs to be done?" />
-              <button type="submit" id="add-btn">
-                Add
-              </button>
-            </div>
-          </form>
-          <div className="todo-container">
-            <ul id="todo-list"></ul>
-          </div>
-        </main>
-        <footer>
-          <p>Click on a task to mark it as completed</p>
-        </footer>
-      </div>
-    </>
-  )
-}
+### Frontend
+
+- **React 19** - Latest React with modern features
+- **TypeScript** - Type-safe JavaScript
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router 7** - Client-side routing
+- **React Hook Form** - Form state management
+- **Zod** - Schema validation
+
+### State Management & API
+
+- **TanStack React Query** - Server state management
+- **Custom Hooks** - Business logic abstraction
+- **RESTful API** - External API integration
+
+### UI Components
+
+- **Radix UI** - Accessible component primitives
+- **Lucide React** - Modern icon library
+- **next-themes** - Theme switching functionality
+- **Class Variance Authority** - Component styling variants
+
+## 📁 Project Structure
+
+```
+src/
+├── api/              # API layer and external service integration
+├── components/       # Reusable UI components
+│   ├── ui/          # Base UI components (buttons, inputs, etc.)
+│   └── todos/       # Todo-specific components
+├── hooks/           # Custom React hooks for business logic
+├── pages/           # Route components
+├── types.ts         # TypeScript type definitions
+└── lib/             # Utility functions
 ```
 
-Main elements we'll be working with:
+## 🏃‍♂️ Getting Started
 
-- `App` component - the main container for our application
-- Todo input form - for adding new tasks
-- Todo list - to display tasks dynamically
-- We'll add additional components like `TodoItem`, `TodoList`, `TodoForm`, etc.
+### Prerequisites
 
-## Documentation
+- Node.js (16.0 or higher)
+- npm or yarn
 
-For detailed information about React concepts used in this project, please refer to:
+### Installation
 
-- [React Basics](react-basics.md) - Comprehensive guide to React fundamentals
-- [JavaScript Basics](javascript-basics.md) - Guide to JavaScript concepts used in React
-- [TypeScript Basics](typescript-basics.md) - How TypeScript enhances React development
-- [TypeScript in React](typescript-react.md) - Practical guide to using TypeScript with React
-
-### API Documentation
-
-This project uses a RESTful API for managing todos. The API is documented using Swagger UI:
-
-- [API Documentation](https://eli-workshop.vercel.app/api-docs) - Interactive API documentation
-- [Todos Endpoint](https://eli-workshop.vercel.app/api/todos) - Direct access to todos data
-
-## How to Work with This Repository
-
-### For Students
-
-1. Fork the repository
-
-   - Go to the repository URL
-   - Click the "Fork" button in the top right corner
-   - This will create your own copy of the repository
-
-2. Clone your forked repository
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/YOUR_USERNAME/react-dev-intro.git
    cd react-dev-intro
    ```
 
-3. Create a new branch with your INSIS ID
+2. **Install dependencies**
 
    ```bash
-   git checkout -b YOUR_INSIS_ID
-   # Example: git checkout -b xjansa00
+   npm install
    ```
 
-4. Make your changes
-
-   - Work on your branch
-   - Commit your changes regularly
-   - Push your changes to your fork
+3. **Start the development server**
 
    ```bash
-   git add .
-   git commit -m "Your commit message"
-   git push origin YOUR_INSIS_ID
+   npm run dev
    ```
 
-5. Create a Pull Request
-   - Go to your forked repository on GitHub
-   - Click "Compare & pull request"
-   - Set the base repository as the original repository
-   - Set the base branch as "master"
-   - Set the head repository as your fork
-   - Set the compare branch as your INSIS ID branch
-   - Add a description of your changes
-   - Submit the pull request
+4. **Open your browser**
+   Navigate to `http://localhost:5173`
 
-### Important Notes
+### Available Scripts
 
-- Always work on your own branch
-- Keep your branch up to date with the main repository
-  ```bash
-   git remote add upstream https://github.com/JanSmrcka/react-dev-intro.git
-   git fetch upstream
-   git merge upstream/master
-  ```
-- Make meaningful commit messages
-- Respond to any feedback on your pull request
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🎨 User Interface
+
+The application features a modern, clean interface with:
+
+- **Dashboard**: Overview with statistics cards showing total, completed, and pending todos
+- **Search Bar**: Real-time search functionality with instant filtering
+- **Filter Dropdown**: Quick filtering by completion status
+- **Bulk Actions**: Multi-select interface for batch operations
+- **Priority Indicators**: Visual priority levels with color coding
+- **Theme Toggle**: Switch between light, dark, and system themes
+- **Responsive Layout**: Adapts to different screen sizes
+
+## 🔌 API Integration
+
+The application integrates with a RESTful API providing:
+
+- **GET /api/todos** - Fetch all todos
+- **POST /api/todos** - Create new todo
+- **PATCH /api/todos/:id** - Update existing todo
+- **DELETE /api/todos/:id** - Delete todo
+- **Bulk Operations** - Multiple todo operations
+
+API Documentation: [https://eli-workshop.vercel.app/api-docs](https://eli-workshop.vercel.app/api-docs)
+
+## 🧪 Key React Concepts Demonstrated
+
+- **Functional Components** with hooks
+- **Custom Hooks** for business logic
+- **Context API** for theme management
+- **React Query** for server state
+- **React Router** for navigation
+- **Lazy Loading** for performance
+- **Error Boundaries** for error handling
+- **TypeScript Integration** for type safety
+
+## 📚 Learning Resources
+
+For detailed information about React concepts used in this project:
+
+- [React Basics](react-basics.md) - Core React concepts
+- [JavaScript Basics](javascript-basics.md) - JavaScript fundamentals
+- [TypeScript Basics](typescript-basics.md) - TypeScript essentials
+- [TypeScript in React](typescript-react.md) - TypeScript with React
+
+## 🤝 Contributing
+
+### For Students
+
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b your-insis-id
+   ```
+3. **Make your changes**
+4. **Commit your changes**
+   ```bash
+   git commit -m "Add new feature"
+   ```
+5. **Push to your branch**
+   ```bash
+   git push origin your-insis-id
+   ```
+6. **Create a Pull Request**
+
+### Development Guidelines
+
+- Follow TypeScript best practices
+- Use existing UI components from the `ui` folder
+- Implement proper error handling
+- Add loading states for async operations
+- Maintain responsive design patterns
+- Write meaningful commit messages
+
+## 🔧 Architecture Highlights
+
+### Custom Hooks Pattern
+
+- `useTodosQuery` - Fetch todos with caching
+- `useTodoCreate` - Create new todos
+- `useTodoUpdate` - Update existing todos
+- `useTodoDelete` - Delete todos
+- `useBulkTodos` - Bulk operations
+- `useTodoToggle` - Toggle completion status
+
+### Component Architecture
+
+- Atomic design principles
+- Separation of concerns
+- Reusable UI components
+- Business logic in custom hooks
+- TypeScript for type safety
+
+### State Management
+
+- Server state with React Query
+- Local state with React hooks
+- Theme state with Context API
+- Form state with React Hook Form
+
+## 📄 License
+
+This project is part of an educational course and is intended for learning purposes.
+
+---
+
+Built with ❤️ for React Programming Basics course at University of Economics in Prague
