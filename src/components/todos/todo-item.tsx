@@ -243,7 +243,7 @@ export const TodoItem = ({ todo, isSelected, onSelect }: TodoItemProps) => {
               </DialogContent>
             </Dialog>
 
-            <Link to={`/todo/${todo.id}`}>
+            <Link to={`/todos/${todo.id}`}>
               <Button size="sm" variant="outline">
                 <ExternalLink className="h-4 w-4 mr-1" />
                 View
